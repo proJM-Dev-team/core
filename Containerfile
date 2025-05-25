@@ -12,7 +12,7 @@ COPY pacstrap-docker /usr/bin
 RUN <<EOF cat > /etc/pacman.conf
 [options]
 Architecture = auto
-ParallelDownloads = 6
+ParallelDownloads = 2
 SigLevel = Required DatabaseOptional
 LocalFileSigLevel = Never
 
@@ -21,6 +21,9 @@ Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/core/os/\$arch
 
 [extra]
 Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/extra/os/\$arch
+
+[multilib]
+Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/multilib/os/\$arch
 EOF
 
 #RUN sed -i "s|ARCHIVE_SERVER|$ARCHIVE_SERVER|g" /etc/pacman.conf
@@ -38,7 +41,7 @@ LABEL supports-commonarch="true" \
       name="CommonArch Base Image" \
       usage="This image is meant to be used on CommonArch" \
       summary="Base image for creating CommonArch Desktop images" \
-      maintainer="Rudra Saraswat <rswat09@gmail.com>"
+      maintainer="proJM-Coding <81658610+proJM-Coding@users.noreply.github.co>"
 
 # Install extra packages
 COPY extra-packages /
