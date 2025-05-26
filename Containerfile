@@ -32,7 +32,7 @@ Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/extra/os/\$arch
 Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/multilib/os/\$arch
 
 [chaotic-aur]
-Server = https://cdn-mirror.chaotic.cx/$repo/$arch
+Server = https://cdn-mirror.chaotic.cx/chaotic-aur/\$arch
 EOF
 
 #RUN sed -i "s|ARCHIVE_SERVER|$ARCHIVE_SERVER|g" /etc/pacman.conf
