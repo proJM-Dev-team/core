@@ -6,6 +6,12 @@ ARG ARCHIVE_SERVER=https://archive.archlinux.org/repos
 RUN pacman-key --init
 RUN pacman -Sy --needed --noconfirm archlinux-keyring arch-install-scripts
 
+RUN pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+RUN pacman-key --lsign-key 3056513887B78AEB
+
+RUN pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+RUN pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+
 WORKDIR /
 
 COPY pacstrap-docker /usr/bin
@@ -24,6 +30,9 @@ Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/extra/os/\$arch
 
 [multilib]
 Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/multilib/os/\$arch
+
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
 EOF
 
 #RUN sed -i "s|ARCHIVE_SERVER|$ARCHIVE_SERVER|g" /etc/pacman.conf
