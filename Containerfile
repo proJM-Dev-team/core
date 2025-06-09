@@ -38,7 +38,7 @@ Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/multilib/os/\$arch
 Server = https://cdn-mirror.chaotic.cx/chaotic-aur/\$arch
 
 [trinity]
-Server = https://mirror.ppa.trinitydesktop.org/trinity/archlinux/$arch
+Server = https://mirror.ppa.trinitydesktop.org/trinity/archlinux/\$arch
 EOF
 
 #RUN sed -i "s|ARCHIVE_SERVER|$ARCHIVE_SERVER|g" /etc/pacman.conf
