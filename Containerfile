@@ -12,6 +12,9 @@ RUN pacman-key --lsign-key 3056513887B78AEB
 RUN pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
 RUN pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
+RUN pacman-key --recv-key  D6D6FAA25E9A3E4ECD9FBDBEC93AF1698685AD8B
+RUN pacman-key --lsign-key D6D6FAA25E9A3E4ECD9FBDBEC93AF1698685AD8B
+
 WORKDIR /
 
 COPY pacstrap-docker /usr/bin
@@ -33,6 +36,9 @@ Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/multilib/os/\$arch
 
 [chaotic-aur]
 Server = https://cdn-mirror.chaotic.cx/chaotic-aur/\$arch
+
+[trinity]
+Server = https://mirror.ppa.trinitydesktop.org/trinity/archlinux/$arch
 EOF
 
 #RUN sed -i "s|ARCHIVE_SERVER|$ARCHIVE_SERVER|g" /etc/pacman.conf
