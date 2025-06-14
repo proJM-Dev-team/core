@@ -1,6 +1,6 @@
 FROM docker.io/library/archlinux:base-devel AS pacstrap
 
-ARG ARCHIVE_DATE=month
+ARG ARCHIVE_DATE=week
 ARG ARCHIVE_SERVER=https://archive.archlinux.org/repos
 
 RUN pacman-key --init
