@@ -38,7 +38,7 @@ Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/extra/os/\$arch
 Server = $ARCHIVE_SERVER/$ARCHIVE_DATE/multilib/os/\$arch
 
 [chaotic-aur]
-Server = https://cdn-mirror.chaotic.cx/chaotic-aur/\$arch
+Server = https://builds.garudalinux.org/repos/chaotic-aur/\$arch
 
 [trinity]
 Server = http://mirror.ppa.trinitydesktop.org/trinity/archlinux/\$arch
