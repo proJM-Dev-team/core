@@ -63,11 +63,11 @@ LABEL supports-commonarch="true" \
 
 # Install extra packages
 COPY extra-packages /
-RUN pacman -Syu --needed --noconfirm - < extra-packages
+RUN pacman -Syu --needed --noconfirm - < extra-packages; yes | pacman -Scc
 RUN rm /extra-packages
 
 # Install and enable networkmanager and bluez
-RUN pacman -Syu --needed --noconfirm networkmanager bluez
+RUN pacman -Syu --needed --noconfirm networkmanager bluez; yes | pacman -Scc
 RUN systemctl enable NetworkManager; systemctl enable bluetooth
 
 # Clean up cache

@@ -38,3 +38,5 @@ if ! install-packages-build -r "$newroot" "${pacman_args[@]}"; then
 fi
 
 cp /usr/bin/install-packages-build "$newroot"/usr/bin
+
+ln -sfn usr/lib64 /lib64
